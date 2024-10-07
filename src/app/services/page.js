@@ -1,9 +1,7 @@
-import React from 'react'
+import Services from "@/pages/Services";
 
 const ServicesPage = () => {
-  return (
-    <div>Services Page route</div>
-  )
-}
+	return <Services />;
+};
 
-export default ServicesPage
+export default ServicesPage;
