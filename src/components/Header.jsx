@@ -1,6 +1,6 @@
 "use client";
 
-import React from "react";
+import React, { useState } from "react";
 import { useRouter, usePathname } from "next/navigation";
 import Image from "next/image";
 import Logo from "../assets/logo.svg";
@@ -8,19 +8,26 @@ import Link from "next/link";
 import { Button, Dropdown, DropdownItem, DropdownMenu, DropdownTrigger } from "@nextui-org/react";
 import { LiaPhoneVolumeSolid } from "react-icons/lia";
 import { TfiTime } from "react-icons/tfi";
-import { GoArrowUpRight } from "react-icons/go";
+import { FaArrowUp } from "react-icons/fa";
 
 const Header = () => {
     const router = useRouter();
     const pathname = usePathname();
     const isActive = (path) => pathname === path;
 
+    const [selectedLang, setSelectedLang] = useState("O'z");
+
     const items = [
-        { key: "new", label: "New file" },
-        { key: "copy", label: "Copy link" },
-        { key: "edit", label: "Edit file" },
-        { key: "delete", label: "Delete file" }
+        { key: "uz", label: "O'zbekcha" },
+        { key: "ru", label: "Русский" },
+        { key: "en", label: "English" },
     ];
+
+    const handleLangChange = (key) => {
+        if (key === "uz") setSelectedLang("O'z");
+        else if (key === "ru") setSelectedLang("Ru");
+        else if (key === "en") setSelectedLang("En");
+    };
 
     return (
         <div className="container pt-5">
@@ -49,20 +56,31 @@ const Header = () => {
                     <Link className={`${isActive("/contact" ? "border-b border-b-blue" : "")} mx-5 py-3 transition-all border-b border-b-transparent hover:border-b-blue hover:border-b hover:text-blue`} href="/contact">Bog’lanish</Link>
                 </nav>
 
-                <div>
+                <div className="w-[30%] flex items-center justify-between">
                     <Dropdown backdrop="blur">
                         <DropdownTrigger>
-                            <Button variant="bordered">O'z</Button>
+                            <Button variant="bordered">{selectedLang}</Button>
                         </DropdownTrigger>
                         <DropdownMenu variant="faded" aria-label="Static Actions">
-                            {items.map((item) => (
-                                <DropdownItem key={item.key}>ggg</DropdownItem>
+                            {items.map((item, index) => (
+                                <DropdownItem key={index}>{item.label}</DropdownItem>
                             ))}
                         </DropdownMenu>
                     </Dropdown>
 
-                    <Button className="bg-bgBase text-blue hover:bg-blue hover:text-white transition-all">Natijani ko'rish</Button>
-                    <Button className="bg-bgBase text-blue hover:bg-blue hover:text-white transition-all">Qabulga yozilish <GoArrowUpRight fill="#5296C6" className="p-3 size-2" /></Button>
+                    <Link href="/">
+                        <Button className="bg-bgBase text-blue font-semibold hover:bg-blue hover:text-white transition-all">Natijani ko'rish</Button>
+                    </Link>
+                    {/* <Button className="bg-bgBase text-blue hover:bg-blue hover:text-white transition-all">Qabulga yozilish <GoArrowUpRight fill="#5296C6" className="p-3 size-2" /></Button> */}
+                    <Link href="/doctors">
+                        <Button className="bg-bgBase text-blue font-semibold flex items-center justify-between transition-all group hover:bg-blue hover:text-white">
+                            Qabulga yozilish 
+                            <span className="rounded-full transition-all p-[5px] ml-1 group-hover:bg-white">
+                                <FaArrowUp style={{ transform: "rotate(45deg)" }} size={13} fill="#5296C6" />
+                            </span>
+                        </Button>
+                    </Link>
+
                 </div>
             </div>
         </div>

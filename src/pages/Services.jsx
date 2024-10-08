@@ -9,37 +9,35 @@ import ServiceCard from "@/components/ServiceCard";
 
 const Services = () => {
     return (
-        <div>
-            <Layout>
-                <Title title="Xizmatlar" text="Darmon Servis xizmatlari" />
-                <div className="container flex items-center justify-between flex-wrap">
-                    <ServiceCard img={Img1} title="Terapevt" />
-                    <ServiceCard img={Img2} title="Terapevt" />
-                    <ServiceCard img={Img3} title="Terapevt" />
-                    <ServiceCard img={Img4} title="Terapevt" />
+        <Layout>
+            <Title title="Xizmatlar" text="Darmon Servis xizmatlari" />
+            <div className="container flex items-center justify-between flex-wrap">
+                <ServiceCard img={Img1} title="Terapevt" />
+                <ServiceCard img={Img2} title="Terapevt" />
+                <ServiceCard img={Img3} title="Terapevt" />
+                <ServiceCard img={Img4} title="Terapevt" />
 
-                    <ServiceCard img={Img1} title="Terapevt" />
-                    <ServiceCard img={Img2} title="Terapevt" />
-                    <ServiceCard img={Img3} title="Terapevt" />
-                    <ServiceCard img={Img4} title="Terapevt" />
+                <ServiceCard img={Img1} title="Terapevt" />
+                <ServiceCard img={Img2} title="Terapevt" />
+                <ServiceCard img={Img3} title="Terapevt" />
+                <ServiceCard img={Img4} title="Terapevt" />
 
-                    <ServiceCard img={Img1} title="Terapevt" />
-                    <ServiceCard img={Img2} title="Terapevt" />
-                    <ServiceCard img={Img3} title="Terapevt" />
-                    <ServiceCard img={Img4} title="Terapevt" />
+                <ServiceCard img={Img1} title="Terapevt" />
+                <ServiceCard img={Img2} title="Terapevt" />
+                <ServiceCard img={Img3} title="Terapevt" />
+                <ServiceCard img={Img4} title="Terapevt" />
 
-                    <ServiceCard img={Img1} title="Terapevt" />
-                    <ServiceCard img={Img2} title="Terapevt" />
-                    <ServiceCard img={Img3} title="Terapevt" />
-                    <ServiceCard img={Img4} title="Terapevt" />
+                <ServiceCard img={Img1} title="Terapevt" />
+                <ServiceCard img={Img2} title="Terapevt" />
+                <ServiceCard img={Img3} title="Terapevt" />
+                <ServiceCard img={Img4} title="Terapevt" />
 
-                    <ServiceCard img={Img1} title="Terapevt" />
-                    <ServiceCard img={Img2} title="Terapevt" />
-                    <ServiceCard img={Img3} title="Terapevt" />
-                    <ServiceCard img={Img4} title="Terapevt" />
-                </div>
-            </Layout>
-        </div>
+                <ServiceCard img={Img1} title="Terapevt" />
+                <ServiceCard img={Img2} title="Terapevt" />
+                <ServiceCard img={Img3} title="Terapevt" />
+                <ServiceCard img={Img4} title="Terapevt" />
+            </div>
+        </Layout>
     )
 }
 

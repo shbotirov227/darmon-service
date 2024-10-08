@@ -1,13 +1,16 @@
 import Image from "next/image";
 import RatingStars from "@/components/RatingStars";
+import Link from "next/link";
 
 const DoctorCard = ({ img, doctorName, experience, job, stars }) => {
     return (
         <div className="w-[20%] p-6 rounded-3xl border border-[#E3E3E3] shadow-[5.0px_5.0px_10.0px_rgba(0,0,0,0.20)]">
-            <Image className="object-center" src={img} alt="doctor-img" />
+            <Link href="/doctor-detail">
+                <Image className="object-center mb-5" src={img} alt="doctor-img" />
+            </Link>
 
             <div>
-                <h4 className="mb-5 font-semibold text-2xl">{doctorName}</h4>
+                <Link href="/doctor-detail" className="block my-5 font-semibold text-2xl">{doctorName}</Link>
 
                 <div className="flex items-center">
                     {/* <ReactStars value={5} size={24} /> */}
