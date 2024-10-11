@@ -2,9 +2,9 @@ import Image from "next/image";
 import RatingStars from "@/components/RatingStars";
 import Link from "next/link";
 
-const DoctorCard = ({ img, doctorName, experience, job, stars }) => {
+const DoctorCard = ({ cls, img, doctorName, experience, job, stars }) => {
     return (
-        <div className="w-[20%] p-6 rounded-3xl border border-[#E3E3E3] shadow-[5.0px_5.0px_10.0px_rgba(0,0,0,0.20)]">
+        <div className={`${cls} w-[20%] p-6 rounded-3xl border border-[#E3E3E3] shadow-[5.0px_5.0px_10.0px_rgba(0,0,0,0.20)]`}>
             <Link href="/doctor-detail">
                 <Image className="object-center mb-5" src={img} alt="doctor-img" />
             </Link>

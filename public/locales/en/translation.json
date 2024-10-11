@@ -1,0 +1,25 @@
+{
+    "header": {
+        "home": "Home",
+        "about": "About us",
+        "services": "Services",
+        "doctors": "Doctors",
+        "news": "News",
+        "contact": "Contact"
+    },
+
+    "footer": {
+        "text": "TAKE CARE OF YOUR HEALTH WITH",
+        "textBold": "DARMON SERVIS",
+
+        "link": {
+            "1": "Useful link",
+            "2": ""
+        }
+    },
+
+    "button": {
+        "1": "View a result",
+        "2": "Registration"
+    }
+}

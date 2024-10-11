@@ -1,0 +1,20 @@
+{
+    "header": {
+        "home": "Bosh sahifa",
+        "about": "Biz haqimizda",
+        "services": "Xizmatlar",
+        "doctors": "Shifokorlar",
+        "news": "Maqolalar",
+        "contact": "Bog'lanish"
+    },
+
+    "footer": {
+        "text": "BILAN SOG'LIG'INGIZGA G'AMXO'RLIK QILING",
+        "textBold": "DARMON SERVIS"
+    },
+
+    "button": {
+        "1": "Natijani ko'rish",
+        "2": "Qabulga yozilish"
+    }
+}

@@ -4,7 +4,7 @@ import Layout from "@/components/Layout";
 
 const NewsCard = ({ image, date, views, title }) => {
     return (
-        <div className="w-[400px] h-full mb-12 bg-white rounded-lg shadow-xl overflow-hidden">
+        <div className="w-[400px] h-full mb-12 bg-white rounded-xl shadow-xl overflow-hidden">
             <Image className="w-full object-cover" src={image} alt="Yangilik" />
             <div className="p-8 h-[170px]">
                 <div className="flex items-center text-gray-500 text-sm mb-5">

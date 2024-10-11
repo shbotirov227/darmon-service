@@ -26,6 +26,7 @@ module.exports = {
                 white: "#FFFFFF",
                 bgBase: "#E5EFF6",
                 txtColor: "#9F9F9F",
+                dotColor: "#CFE0EB"
             },
         }
     },
