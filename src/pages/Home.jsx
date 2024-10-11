@@ -8,6 +8,7 @@ import MiniCard from "@/components/MiniCard";
 import DoctorCard from "@/components/DoctorCard";
 import NewsCard from "@/components/NewsCard";
 import ContactForm from "@/components/ContactForm";
+import FeedbackCard from "@/components/FeedbackCard";
 import { GoArrowRight } from "react-icons/go";
 import { Button, Card, Input, Label, Textarea } from "@nextui-org/react";
 import Img from "@/assets/home-img1.png";
@@ -16,6 +17,9 @@ import CarouselImg1 from "@/assets/about-img1.png";
 import CarouselImg2 from "@/assets/news-card-img.png";
 import DoctorImg from "@/assets/doctor-img.png";
 import NewsCardImg from "@/assets/news-card-img.png";
+import CallImg from "@/assets/call-img.png";
+import CallBg from "@/assets/call-bg.png";
+import FeedbackCardImg from "@/assets/feedback-card-img.png";
 import Image from "next/image";
 import Link from "next/link";
 import { BsCheckLg } from "react-icons/bs";
@@ -41,7 +45,7 @@ import "slick-carousel/slick/slick-theme.css";
 import ServiceCard from "@/components/ServiceCard";
 
 const Home = () => {
-    
+
     const [formState, setFormState] = useState({ name: "", phone: "", message: "" });
     const [currentSlide, setCurrentSlide] = useState(0);
     const data = [Img, Img1, CarouselImg1, CarouselImg2];
@@ -152,6 +156,50 @@ const Home = () => {
         }
     ];
 
+    const feedbackData = [
+        {
+            img: FeedbackCardImg,
+            name: "Madina Abdullayeva",
+            role: "Patient",
+            text: "opularised in the 1960s with the release of publishing software like Aldus PageMaker including versions of Lorem Ipsum.essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets"
+        },
+
+        {
+            img: FeedbackCardImg,
+            name: "Madina Abdullayeva",
+            role: "Patient",
+            text: "opularised in the 1960s with the release of publishing software like Aldus PageMaker including versions of Lorem Ipsum.essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets"
+        },
+
+        {
+            img: FeedbackCardImg,
+            name: "Madina Abdullayeva",
+            role: "Patient",
+            text: "opularised in the 1960s with the release of publishing software like Aldus PageMaker including versions of Lorem Ipsum.essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets"
+        },
+
+        {
+            img: FeedbackCardImg,
+            name: "Madina Abdullayeva",
+            role: "Patient",
+            text: "opularised in the 1960s with the release of publishing software like Aldus PageMaker including versions of Lorem Ipsum.essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets"
+        },
+
+        {
+            img: FeedbackCardImg,
+            name: "Madina Abdullayeva",
+            role: "Patient",
+            text: "opularised in the 1960s with the release of publishing software like Aldus PageMaker including versions of Lorem Ipsum.essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets"
+        },
+
+        {
+            img: FeedbackCardImg,
+            name: "Madina Abdullayeva",
+            role: "Patient",
+            text: "opularised in the 1960s with the release of publishing software like Aldus PageMaker including versions of Lorem Ipsum.essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets"
+        }
+    ];
+
     // Custom Prev Arrow
     const PrevArrow = ({ onClick }) => {
         return (
@@ -190,21 +238,40 @@ const Home = () => {
 
     const serviceSettings = {
         dots: true,
-        infinite: false,
+        infinite: true,
         speed: 500,
         autoplay: true,
-        slidesToShow: 4.7,
-        slidesToShow: 4,
+        slidesToShow: 5.2,
         nextArrow: false,
         prevArrow: false,
         cursor: "pointer",
         customPaging: (i) => (
             <div
-                className={`w-4 h-3 transition-all rounded-full cursor-pointer ${
-                    i === currentSlide
-                        ? " bg-[#5296C6] px-3"
-                        : "bg-[#CFE0EB]"
-                }`}
+                className={`w-4 h-3 transition-all rounded-full cursor-pointer ${i === currentSlide
+                    ? " bg-[#5296C6] px-3"
+                    : "bg-[#CFE0EB]"
+                    }`}
+            ></div>
+        ),
+        afterChange: handleAfterChange
+    };
+
+    const feedbackSettings = {
+        dots: false,
+        infinite: true,
+        speed: 500,
+        autoplay: true,
+        autoplaySpeed: 5000,
+        slidesToShow: 3.8,
+        nextArrow: false,
+        prevArrow: false,
+        cursor: "pointer",
+        customPaging: (i) => (
+            <div
+                className={`w-4 h-3 transition-all rounded-full cursor-pointer ${i === currentSlide
+                    ? " bg-[#5296C6] px-3"
+                    : "bg-[#CFE0EB]"
+                    }`}
             ></div>
         ),
         afterChange: handleAfterChange
@@ -214,16 +281,16 @@ const Home = () => {
     const handleChange = (e) => {
         setFormState({ ...formState, [e.target.name]: e.target.value });
     };
-    
+
     const handleSubmit = (e) => {
         e.preventDefault();
         console.log(formState);
     };
 
     return (
-        <div>
+        <div className="">
             <Layout>
-                <div className="m-auto text-center">
+                <div className="overflow-hidden m-auto text-center">
                     <div className="inline-flex items-center text-sm bg-[white] rounded-3xl shadow-md py-2 px-4 my-10">
                         <HomeHospitalIcon cls="mr-2 bg-blue p-[5px] rounded-full w-[30px] h-[30px]" />
                         <h4 className="text-blue">Welcome to our hospital</h4>
@@ -294,8 +361,8 @@ const Home = () => {
 
                 <Title title="Xizmatlar" text="Darmon Servis xizmatlari" />
 
-                <div className="relative container w-full mx-auto my-10">
-                    <Slider className="min-w-[100%]" {...serviceSettings}>
+                <div className="relative w-full mx-auto my-10">
+                    <Slider arrows={false} className="w-[100%]" {...serviceSettings}>
                         {servicesData.map((el, i) => (
                             <div key={i} className="items-center rounded-3xl p-4">
                                 <ServiceCard img={el.icon} title={el.title} />
@@ -307,23 +374,23 @@ const Home = () => {
 
                 <Title title="Shifokorlar" text="Tajribali mutaxassislar" />
 
-                <div className="flex flex-wrap items-center justify-between mb-12">
+                <div className="container flex flex-wrap items-center justify-between mb-12">
                     <DoctorCard img={DoctorImg} doctorName="Micheal Scofield" job="Nevrolog" experience={10} />
                     <DoctorCard img={DoctorImg} doctorName="Micheal Scofield" job="Nevrolog" experience={10} />
                     <DoctorCard img={DoctorImg} doctorName="Micheal Scofield" job="Nevrolog" experience={10} />
                     <DoctorCard img={DoctorImg} doctorName="Micheal Scofield" job="Nevrolog" experience={10} />
                 </div>
-                
+
                 <Button className="flex items-center mb-10 text-base text-center mx-auto text-blue bg-transparent font-semibold">
                     <Link className="flex items-center" href="/doctors">
                         Barchasini ko'rish
                         <Icon className="text-sm text-blue ml-1" icon="formkit:arrowright" />
                     </Link>
                 </Button>
-            
+
                 <Title title="Maqola" text="So’ngi yangiliklar" />
 
-               
+
                 <div className="container flex justify-between flex-wrap mb-14">
                     {newsData.map((news, index) => (
                         <NewsCard
@@ -338,7 +405,7 @@ const Home = () => {
 
                 <Button className="flex items-center mb-10 text-base text-center mx-auto text-blue bg-transparent font-semibold">
                     <Link className="flex items-center" href="/news">
-                        Barchasini ko'rish
+                        Barchasini ko`rish
                         <Icon className="text-sm text-blue ml-1" icon="formkit:arrowright" />
                     </Link>
                 </Button>
@@ -346,15 +413,39 @@ const Home = () => {
                 <Title title="Konsultatsiya" text="Shifokor qabuliga yoziling" />
 
                 <div className="container overflow-hidden ">
-                    <ContactForm 
-                        handleSubmit={handleSubmit} 
-                        formState={formState} 
-                        handleChange={handleChange} 
-                        NewsCardImg={NewsCardImg} 
+                    <ContactForm
+                        handleSubmit={handleSubmit}
+                        formState={formState}
+                        handleChange={handleChange}
+                        NewsCardImg={NewsCardImg}
                     />
                 </div>
 
                 <Title title="Izohlar" text="Bemorlar fikrlari" />
+                
+                <div className="flex mb-10">
+                    <Slider arrows={false} className="min-w-[100%]" {...feedbackSettings}>
+                        {feedbackData.map((el, i) => (
+                            <div key={i} className="items-center rounded-3xl p-4">
+                                <FeedbackCard img={el.img} name={el.name} role={el.role} text={el.text} />
+                            </div>
+                        ))}
+                    </Slider>
+                </div>
+
+                <div className="container relative border-4 rounded-full flex items-center justify-between bg-callBg py-16 px-20 mb-20 bg-cover bg-center" style={{ backgroundImage: `url(${CallBg})` }}>
+                    <div className="w-full flex items-center">
+                        <div className="p-2 bg-blue rounded-full">
+                            <Icon className="text-white size-20 rounded-full border border-white p-4 m-2 bg-blue" icon="line-md:phone-call-loop" />
+                        </div>
+
+                        <div className="ml-7">
+                            <h4 className="text-blue pb-2 mb-5 border-b border-b-blue">Qo'ng'iroq vaqti: 24/7</h4>
+                            <Link className="text-blue font-semibold text-xl" href="tel:+99871-203-00-17">71-203-00-17</Link>
+                        </div>
+                    </div>
+                    <Image className="absolute right-0 size-" src={CallImg} alt="call-img" />
+                </div>
 
             </Layout>
         </div>

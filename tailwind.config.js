@@ -28,7 +28,10 @@ module.exports = {
                 txtColor: "#9F9F9F",
                 dotColor: "#CFE0EB"
             },
-        }
+            backgroundImage: {
+                callBg: "url('/assets/call-bg.png')"
+            }
+        },
     },
     darkMode: "class",
     important: true,
