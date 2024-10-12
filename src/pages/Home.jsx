@@ -1,105 +1,111 @@
 "use client";
 
-import React, { useState } from "react";
-import Layout from "@/components/Layout";
-import Title from "@/components/Title";
-import HomeCard from "@/components/HomeCard";
-import MiniCard from "@/components/MiniCard";
-import DoctorCard from "@/components/DoctorCard";
-import NewsCard from "@/components/NewsCard";
-import ContactForm from "@/components/ContactForm";
-import FeedbackCard from "@/components/FeedbackCard";
+import React, { Suspense, useEffect, useState } from "react";
+import Link from "next/link";
+import Image from "next/image";
+import Slider from "react-slick";
+import { useTranslation } from "react-i18next";
 import { GoArrowRight } from "react-icons/go";
-import { Button, Card, Input, Label, Textarea } from "@nextui-org/react";
+import { Button } from "@nextui-org/react";
+import { Icon } from "@iconify/react";
+
+// Lazy-loaded components
+const Layout = React.lazy(() => import("@/components/Layout"));
+const Title = React.lazy(() => import("@/components/Title"));
+const HomeCard = React.lazy(() => import("@/components/HomeCard"));
+const MiniCard = React.lazy(() => import("@/components/MiniCard"));
+const DoctorCard = React.lazy(() => import("@/components/DoctorCard"));
+const NewsCard = React.lazy(() => import("@/components/NewsCard"));
+const ContactForm = React.lazy(() => import("@/components/ContactForm"));
+const FeedbackCard = React.lazy(() => import("@/components/FeedbackCard"));
+const ServiceCard = React.lazy(() => import("@/components/ServiceCard"));
+
+import {
+  HomeHospitalIcon,
+  HomeIcon1,
+  HomeIcon2,
+  HomeIcon3,
+  HomeCardIcon1,
+  HomeCardIcon2,
+  HomeCardIcon3,
+  HomeCardIcon4,
+  HomeCardIcon5,
+  HomeCardIcon6
+} from "@/assets/icons";
+
+// Other assets
 import Img from "@/assets/home-img1.png";
 import Img1 from "@/assets/about-img1.png";
-import CarouselImg1 from "@/assets/about-img1.png";
-import CarouselImg2 from "@/assets/news-card-img.png";
 import DoctorImg from "@/assets/doctor-img.png";
 import NewsCardImg from "@/assets/news-card-img.png";
-import CallImg from "@/assets/call-img.png";
 import CallBg from "@/assets/call-bg.png";
+import CallImg from "@/assets/call-img.png";
+import CarouselImg1 from "@/assets/about-img1.png";
+import CarouselImg2 from "@/assets/news-card-img.png";
 import FeedbackCardImg from "@/assets/feedback-card-img.png";
-import Image from "next/image";
-import Link from "next/link";
-import { BsCheckLg } from "react-icons/bs";
-import { FaArrowLeft, FaArrowRight } from "react-icons/fa";
-import Slider from "react-slick";
-import InputMask from "react-input-mask";
-import {
-    HomeHospitalIcon,
-    HomeCardIcon1,
-    HomeCardIcon2,
-    HomeCardIcon3,
-    HomeCardIcon4,
-    HomeCardIcon5,
-    HomeCardIcon6,
-    HomeIcon1,
-    HomeIcon2,
-    HomeIcon3
-} from "@/assets/icons";
-import { Icon } from '@iconify/react';
 
+// Slider settings
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
-import ServiceCard from "@/components/ServiceCard";
 
 const Home = () => {
 
+    const { t, i18n } = useTranslation();
     const [formState, setFormState] = useState({ name: "", phone: "", message: "" });
     const [currentSlide, setCurrentSlide] = useState(0);
+    const [text, setText] = useState("");
     const data = [Img, Img1, CarouselImg1, CarouselImg2];
 
     const homeCardData = [
         {
             icon: <HomeIcon1 size={55} />,
             value: "250+",
-            title: "Bemorlar soni"
+            title: t("homeCardData.1")
         },
 
         {
             icon: <HomeIcon2 size={55} />,
             value: "250+",
-            title: "Malakali shiforkorlar",
+            title: t("homeCardData.2"),
             border: true
         },
 
         {
             icon: <HomeIcon3 size={45} />,
             value: "250+",
-            title: "Xizmat turlari"
+            title: t("homeCardData.3")
         }
     ];
 
     const cardData = [
         {
             icon: <HomeCardIcon1 />,
-            title: "24/7 ishlash xizmati"
+            title: t("cardData.1")
         },
 
         {
             icon: <HomeCardIcon2 />,
-            title: "Tibbiy xizmatni uyga chaqirish imkoniyati"
+            title: t("cardData.2")
         },
 
         {
             icon: <HomeCardIcon3 />,
-            title: "Faol rivojlanish va zamonaviy uskunalar"
+            title: t("cardData.3")
         },
 
         {
             icon: <HomeCardIcon4 />,
-            title: "Qulay chegirmalar tizimi"
+            title: t("cardData.4")
         },
 
         {
             icon: <HomeCardIcon5 />,
-            title: "Keng ish tajribasi va malakali shifokorlar"
+            title: t("cardData.5")
         },
 
         {
             icon: <HomeCardIcon6 />,
-            title: "Ultratovush diagnostikasi bo’yicha yetakchilar"
+            title: t("cardData.6")
         },
     ];
 
@@ -126,7 +132,7 @@ const Home = () => {
 
         {
             icon: <Icon className="m-auto size-24 bg-bgBase text-[#5296C6] rounded-full p-6" icon="mingcute:female-line" />,
-            title: "Ginokologiya"
+            title: "Ginokelogiya"
         },
 
         {
@@ -200,11 +206,15 @@ const Home = () => {
         }
     ];
 
+    const handleAfterChange = (current) => {
+        setCurrentSlide(current);
+    };
+
     // Custom Prev Arrow
     const PrevArrow = ({ onClick }) => {
         return (
-            <div className="absolute top-1/2 left-[-30px] transform -translate-y-1/2 cursor-pointer z-10">
-                <FaArrowLeft onClick={onClick} size={24} color="#5296c6" />
+            <div className="bg-bgBase p-3 rounded-xl rotate-180 absolute top-1/2 left-[-100px] transform -translate-y-1/2 cursor-pointer z-10">
+                <Icon icon="grommet-icons:form-next" onClick={onClick} size={24} color="#5296c6" />
             </div>
         );
     };
@@ -212,8 +222,8 @@ const Home = () => {
     // Custom Next Arrow
     const NextArrow = ({ onClick }) => {
         return (
-            <div className="absolute top-1/2 right-[-30px] transform -translate-y-1/2 cursor-pointer z-10">
-                <FaArrowRight onClick={onClick} size={24} color="#5296c6" />
+            <div className="bg-bgBase p-3 rounded-xl absolute top-1/2 right-[-100px] transform -translate-y-1/2 cursor-pointer z-10">
+                <Icon icon="grommet-icons:form-next" onClick={onClick} size={24} color="#5296c6" />
             </div>
         );
     };
@@ -226,15 +236,18 @@ const Home = () => {
         slidesToScroll: 1,
         nextArrow: <NextArrow />,
         prevArrow: <PrevArrow />,
-        customPaging: i => (
-            <div className="w-3 h-3 bg-blue rounded-full cursor-pointer"></div>
+        customPaging: (i) => (
+            <div
+                className={`w-4 h-3 transition-all rounded-full cursor-pointer ${i === currentSlide
+                    ? " bg-[#5296C6] px-3"
+                    : "bg-[#CFE0EB]"
+                    }`}
+            ></div>
         ),
+        afterChange: handleAfterChange,
         dotsClass: "slick-dots custom-dots",
     };
 
-    const handleAfterChange = (current) => {
-        setCurrentSlide(current);
-    };
 
     const serviceSettings = {
         dots: true,
@@ -287,20 +300,40 @@ const Home = () => {
         console.log(formState);
     };
 
+    useEffect(() => {
+        if (i18n.language === "ru") {
+            setText(
+                <>
+                    {t("klinika")}
+                    <span className="text-blue"> DARMON SERVIS </span>
+                    {t("titleMain")}
+                </>
+            );
+        } else {
+            setText(
+                <>
+                    <span className="text-blue">DARMON SERVIS </span>
+                    {t("titleMain")}
+                </>
+            );
+        }
+    }, [i18n.language, t]);
+
     return (
-        <div className="">
+        <Suspense fallback={<div>Loading...</div>}>
             <Layout>
                 <div className="overflow-hidden m-auto text-center">
                     <div className="inline-flex items-center text-sm bg-[white] rounded-3xl shadow-md py-2 px-4 my-10">
                         <HomeHospitalIcon cls="mr-2 bg-blue p-[5px] rounded-full w-[30px] h-[30px]" />
-                        <h4 className="text-blue">Welcome to our hospital</h4>
+                        <h4 className="text-blue">{t("button.welcome")}</h4>
                     </div>
 
                     <h2 className="w-[50%] m-auto mb-6 font-semibold text-5xl text-center text-black leading-[70px]">
-                        <span className="text-blue">DARMON SERVIS</span> Klinikasi Sizning Sog’ligingiz Haqida Qayg’uradi
+                        {text}
                     </h2>
+
                     <Button className="bg-blue text-white shadow-md">
-                        Uyga chaqiruv xizmat <GoArrowRight fill="white" size={22} />
+                        {t("button.3")} <GoArrowRight fill="white" size={22} />
                     </Button>
                 </div>
 
@@ -318,48 +351,48 @@ const Home = () => {
                 <div className="container flex items-center justify-center my-12">
                     <Image className="w-[30%]" src={Img1} alt="about-img1" />
                     <div className="w-[45%] ml-20">
-                        <h4 className="text-blue text-center text-[16px] mb-3">Biz haqimizda</h4>
-                        <h3 className="text-black text-[32px] font-bold text-center">DARMON SERVIS klinikasi</h3>
+                        <h4 className="text-blue text-center text-[16px] mb-3">{t("header.about")}</h4>
+                        <h3 className="text-black text-[32px] font-bold text-center">{i18n.language === 'ru' ? `${t("klinika")} DARMON SERVIS` : `DARMON SERVIS ${t("klinika")}`}</h3>
                         <p className="text-txtColor my-5 leading-7 text-[15px]">
-                            Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industrys standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.
+                            {t("text.1")}
                         </p>
 
                         <div className="flex items-center mb-[8%]">
                             <div className="flex items-center mr-[5%]">
                                 <div className="p-1 bg-blue rounded-full mr-3">
-                                    <BsCheckLg fill="#fff" size={15} />
+                                    <Icon icon="mynaui:check-solid" className="text-[#fff]" size={15} />
                                 </div>
-                                <h4 className="text-blue font-semibold">Faol rivojlanish</h4>
+                                <h4 className="text-blue font-semibold">{t("button.4")}</h4>
                             </div>
 
                             <div className="flex items-center">
                                 <div className="p-1 bg-blue rounded-full mr-3">
-                                    <BsCheckLg fill="#fff" size={15} />
+                                    <Icon icon="mynaui:check-solid" className="text-[#fff]" size={15} />
                                 </div>
-                                <h4 className="text-blue font-semibold">Keng ish tajribasi</h4>
+                                <h4 className="text-blue font-semibold">{t("button.5")}</h4>
                             </div>
                         </div>
 
                         <Link href="/">
-                            <Button className="flex items-center text-md font-semibold text-blue bg-[#fff] rounded-3xl shadow-md">
-                                Ko’proq ma’lumot
-                                <FaArrowRight fill="#5296c6" size={15} />
+                            <Button className="inline-flex items-center text-md font-semibold text-blue bg-[#fff] rounded-3xl shadow-md">
+                                {t("link.1")}
+                                <Icon icon="si:arrow-right-fill" fill="#5296c6" size={15} />
                             </Button>
                         </Link>
                     </div>
                 </div>
 
-                <Title title="Afzalliklarmiz" text="Nega aynan Darmon Servisni tanlashingiz kerak?" />
+                <Title title={t("titleComponent.title.1")} text={t("titleComponent.text.1")} />
 
-                <div className="w-full grid grid-cols-3 gap-5 my-auto container mb-10">
+                <div className="w-full grid grid-cols-3 gap-5 my-auto container mb-14">
                     {cardData.map((el, i) => <MiniCard key={i} cls="block m-auto" icon={el.icon} title={el.title} />)}
                 </div>
 
-                <div className="container grid grid-cols-3 m-auto bg-bgBase p-12 rounded-[30px] mb-10">
+                <div className="container grid grid-cols-3 m-auto border bg-bgBase p-12 rounded-[30px] mb-14">
                     {homeCardData.map((el, i) => <HomeCard key={i} icon={el.icon} border={el.border} value={el.value} title={el.title} />)}
                 </div>
 
-                <Title title="Xizmatlar" text="Darmon Servis xizmatlari" />
+                <Title title={t("titleComponent.title.2")} text={t("titleComponent.text.2")} />
 
                 <div className="relative w-full mx-auto my-10">
                     <Slider arrows={false} className="w-[100%]" {...serviceSettings}>
@@ -372,7 +405,7 @@ const Home = () => {
                 </div>
 
 
-                <Title title="Shifokorlar" text="Tajribali mutaxassislar" />
+                <Title title={t("titleComponent.title.3")} text={t("titleComponent.text.3")} />
 
                 <div className="container flex flex-wrap items-center justify-between mb-12">
                     <DoctorCard img={DoctorImg} doctorName="Micheal Scofield" job="Nevrolog" experience={10} />
@@ -388,7 +421,7 @@ const Home = () => {
                     </Link>
                 </Button>
 
-                <Title title="Maqola" text="So’ngi yangiliklar" />
+                <Title title={t("titleComponent.title.4")} text={t("titleComponent.text.4")} />
 
 
                 <div className="container flex justify-between flex-wrap mb-14">
@@ -410,7 +443,7 @@ const Home = () => {
                     </Link>
                 </Button>
 
-                <Title title="Konsultatsiya" text="Shifokor qabuliga yoziling" />
+                <Title title={t("titleComponent.title.5")} text={t("titleComponent.text.5")} />
 
                 <div className="container overflow-hidden ">
                     <ContactForm
@@ -421,9 +454,9 @@ const Home = () => {
                     />
                 </div>
 
-                <Title title="Izohlar" text="Bemorlar fikrlari" />
-                
-                <div className="flex mb-10">
+                <Title title={t("titleComponent.title.6")} text={t("titleComponent.text.6")} />
+
+                <div className="flex mb-52">
                     <Slider arrows={false} className="min-w-[100%]" {...feedbackSettings}>
                         {feedbackData.map((el, i) => (
                             <div key={i} className="items-center rounded-3xl p-4">
@@ -433,8 +466,9 @@ const Home = () => {
                     </Slider>
                 </div>
 
-                <div className="container relative border-4 rounded-full flex items-center justify-between bg-callBg py-16 px-20 mb-20 bg-cover bg-center" style={{ backgroundImage: `url(${CallBg})` }}>
-                    <div className="w-full flex items-center">
+                <div className="container relative rounded-full flex items-center justify-between bg-callBg py-16 px-20 mb-32 bg-cover bg-center" style={{ backgroundImage: `url(${CallBg})` }}>
+                    <Image className="w-[98%] h-[110%] absolute rounded-full border-2 border-bgBase left-0 mx-auto right-0 size-" src={CallBg} alt="call-img" />
+                    <div className="z-10 w-full flex items-center">
                         <div className="p-2 bg-blue rounded-full">
                             <Icon className="text-white size-20 rounded-full border border-white p-4 m-2 bg-blue" icon="line-md:phone-call-loop" />
                         </div>
@@ -444,11 +478,11 @@ const Home = () => {
                             <Link className="text-blue font-semibold text-xl" href="tel:+99871-203-00-17">71-203-00-17</Link>
                         </div>
                     </div>
-                    <Image className="absolute right-0 size-" src={CallImg} alt="call-img" />
+                    <Image className="absolute -bottom-3 right-[80px] w-[30%]" src={CallImg} alt="call-img" />
                 </div>
 
             </Layout>
-        </div>
+        </Suspense>
     );
 };
 

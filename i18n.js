@@ -10,6 +10,7 @@ i18n
   .use(initReactI18next)
   .init({
     fallbackLng: 'en',
+    lng: localStorage.getItem('i18nextLng'),
     debug: false,
     whitelist: Languages,
     interpolation: {

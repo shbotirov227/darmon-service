@@ -11,6 +11,7 @@
     "footer": {
         "text": "TAKE CARE OF YOUR HEALTH WITH",
         "textBold": "DARMON SERVIS",
+        "address": "Tashkent, Chilanzar district, Cho'ponota street, 18/19",
 
         "link": {
             "1": "Useful link",
@@ -18,8 +19,79 @@
         }
     },
 
+    "klinika": "Clinic",
+    "titleMain": "Clinic Cares About Your Health",
+
+    "link": {
+        "1": "More information"
+    },
+
+    "text": {
+        "1": "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.",
+        "2": "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.",
+        "3": "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book."
+    },
+
     "button": {
+        "welcome": "Welcome to our hospital",
         "1": "View a result",
-        "2": "Registration"
+        "2": "Registration",
+        "3": "Calling the service home",
+        "4": "Active development",
+        "5": "Great work experience",
+        "6": "Highly qualified doctors"
+    },
+
+    "titleComponent": {
+        "title": {
+            "1": "Our advantages",
+            "2": "Services",
+            "3": "Doctors",
+            "4": "Article",
+            "5": "Consultation",
+            "6": "Notes",
+            "7": "Darmon Servis clinic"
+        },
+
+        "text": {
+            "1": "Why choose exactly the DARMON SERVIS ?",
+            "2": "Darmon Servis services",
+            "3": "Experienced professionals",
+            "4": "Latest news",
+            "5": "Sign up for a doctor's appointment",
+            "6": "Opinions of patients",
+            "7": "Photos"
+        }
+    },
+
+    "cardData": {
+        "1": "24/7 performance service",
+        "2": "Possibility of calling medical services home",
+        "3": "Active development and modern equipment",
+        "4": "Convenient discount system",
+        "5": "Great work experience and qualified doctors",
+        "6": "Ultrasound diagnostic leaders"
+    },
+
+    "homeCardData": {
+        "1": "Number of patients",
+        "2": "Qualified doctors",
+        "3": "Types of services"
+    },
+
+    "aboutCard": {
+        "doctorName": {
+            "1": "Abdullayeva Aziza Umidovna",
+            "2": "Abdullayeva Aziza Umidovna"
+        },
+        "job": {
+            "1": "Founder of the clinic",
+            "2": "Founder of the clinic"
+        },
+        "qualification": {
+            "1": "Highly qualified doctor",
+            "2": "Highly qualified doctor"
+        }
     }
+
 }

@@ -10,11 +10,88 @@
 
     "footer": {
         "text": "BILAN SOG'LIG'INGIZGA G'AMXO'RLIK QILING",
-        "textBold": "DARMON SERVIS"
+        "textBold": "DARMON SERVIS",
+        "address": "Toshkent, Chilonzor tumani, Cho'ponota ko'chasi, 18/19",
+        
+        "link": {
+            "1": "Useful link",
+            "2": ""
+        }
+    },
+
+    "klinika": "Klinikasi",
+    "titleMain": "Klinikasi Sizning Sog’ligigiz Haqida Qayg’uradi",
+
+    "link": {
+        "1": "Ko’proq ma’lumot"
+    },
+
+    "text": {
+        "1": "Lore Ipsum shunchaki matbaa va dizgi sanoati model matn. Lore Ipsum 1500-yillardan beri sanoatning standart qo'g'irchoq matni bo'lib kelgan, o'shanda noma'lum printer turdagi oshxonani olib, uni namunaviy kitob qilish uchun shifrlangan.",
+        "2": "Lore Ipsum shunchaki matbaa va dizgi sanoati model matn. Lore Ipsum 1500-yillardan beri sanoatning standart qo'g'irchoq matni bo'lib kelgan, o'shanda noma'lum printer turdagi oshxonani olib, uni namunaviy kitob qilish uchun shifrlangan.",
+        "3": "Lore Ipsum shunchaki matbaa va dizgi sanoati model matn. Lore Ipsum 1500-yillardan beri sanoatning standart qo'g'irchoq matni bo'lib kelgan, o'shanda noma'lum printer turdagi oshxonani olib, uni namunaviy kitob qilish uchun shifrlangan."
+
     },
 
     "button": {
+        "welcome": "Kasalxonamizga xush kelibsiz",
         "1": "Natijani ko'rish",
-        "2": "Qabulga yozilish"
+        "2": "Qabulga yozilish",
+        "3": "Uyga chaqiruv xizmati",
+        "4": "Faol rivojlanish",
+        "5": "Keng ish tajribasi",
+        "6": "Yuqori malakali shifokorlar"
+    },
+
+    "titleComponent": {
+        "title": {
+            "1": "Afzalliklarmiz",
+            "2": "Xizmatlar",
+            "3": "Shifokorlar",
+            "4": "Maqola",
+            "5": "Konsultatsiya",
+            "6": "Izohlar",
+            "7": "Darmon servis klinikasi"
+        },
+
+        "text": {
+            "1": "Nega aynan Darmon Servisni tanlashingiz kerak?",
+            "2": "Darmon Servis xizmatlari",
+            "3": "Tajribali mutaxassislar",
+            "4": "So’ngi yangiliklar",
+            "5": "Shifokor qabuliga yoziling",
+            "6": "Bemorlar fikrlari",
+            "7": "Fotolavhalar"
+        }
+    },
+
+    "cardData": {
+        "1": "24/7 ishlash xizmati",
+        "2": "Tibbiy xizmatni uyga chaqirish imkoniyati",
+        "3": "Faol rivojlanish va zamonaviy uskunalar",
+        "4": "Qulay chegirmalar tizimi",
+        "5": "Keng ish tajribasi va malakali shifokorlar",
+        "6": "Ultratovush diagnostikasi bo’yicha yetakchilar"
+    },
+
+    "homeCardData": {
+        "1": "Bemorlar soni",
+        "2": "Malakali shiforkorlar",
+        "3": "Xizmat turlari"
+    },
+
+    "aboutCard": {
+        "doctorName": {
+            "1": "Abdullayeva Aziza Umidovna",
+            "2": "Abdullayeva Aziza Umidovna"
+        },
+        "job": {
+            "1": "Klinika asoschisi",
+            "2": "Klinika asoschisi"
+        },
+        "qualification": {
+            "1": "Yuqori malakali shifokor",
+            "2": "Yuqori malakali shifokor"
+        }
     }
 }
