@@ -1,13 +1,18 @@
 "use client";
 
-import React from "react"
-import Layout from "@/components/Layout";
-import Title from "@/components/Title";
-import NewsCard from "@/components/NewsCard";
-import Img from "@/assets/news-card-img.png";
+import React, { Suspense } from "react";
+import { useTranslation } from "react-i18next";
 import { Grid, Card, Text } from "@nextui-org/react";
+import Img from "@/assets/news-card-img.png";
+
+const Layout = React.lazy(() => import("@/components/Layout"));
+const Loading = React.lazy(() => import("@/components/Loading"));
+const Title = React.lazy(() => import("@/components/Title"));
+const NewsCard = React.lazy(() => import("@/components/NewsCard"));
 
 const News = () => {
+
+    const { t } = useTranslation();
 
     const newsData = [
         {
@@ -67,26 +72,28 @@ const News = () => {
     ];
 
     return (
-        <Layout>
-            <div className="container">
-                <Title title="Maqola" text="So’ngi yangiliklar" />
+        <Suspense fallback={<Loading />}>
+            <Layout>
+                <div className="container">
+                    <Title title={t("titleComponent.title.4")} text={t("titleComponent.text.4")} />
 
-                    <div className="flex justify-between flex-wrap mb-14">
-                        {newsData.map((news, index) => (
-                            <NewsCard
-                                key={index}
-                                image={news.image}
-                                date={news.date}
-                                views={news.views}
-                                title={news.title}
-                            />
-                        ))}
+                        <div className="flex justify-between flex-wrap mb-14">
+                            {newsData.map((news, index) => (
+                                <NewsCard
+                                    key={index}
+                                    image={news.image}
+                                    date={news.date}
+                                    views={news.views}
+                                    title={news.title}
+                                />
+                            ))}
+                        </div>
+
+                    <div className="flex items-center justify-between flex-wrap">
                     </div>
-
-                <div className="flex items-center justify-between flex-wrap">
                 </div>
-            </div>
-        </Layout>
+            </Layout>
+        </Suspense>
     )   
 }
 

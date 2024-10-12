@@ -1,4 +1,4 @@
-import React from 'react'
+import React from "react";
 import Image from "next/image";
 import Img1 from "@/assets/about-img1.png"
 import { FaUserDoctor } from "react-icons/fa6";

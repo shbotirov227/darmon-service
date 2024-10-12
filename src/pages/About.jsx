@@ -9,6 +9,7 @@ import Img1 from "@/assets/about-img1.png"
 import Img2 from "@/assets/about-img2.png"
 import Img3 from "@/assets/about-img3.png"
 
+const Loading = React.lazy(() => import("@/components/Loading"));
 const LazyAboutCard = React.lazy(() => import("@/components/AboutCard"));
 const LazyLayout = React.lazy(() => import("@/components/Layout"));
 const LazyTitle = React.lazy(() => import("@/components/Title"));
@@ -36,7 +37,7 @@ const About = () => {
     ];
 
     return (
-        <Suspense fallback={<div>Loading...</div>}>
+        <Suspense fallback={<Loading />}>
             <LazyLayout>
                 <div className="container flex items-center justify-center mt-12">
                     <Image className="w-[30%]" src={Img1} alt="about-img1" />

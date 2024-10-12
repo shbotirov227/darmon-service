@@ -56,6 +56,14 @@ const Header = () => {
         // i18next.changeLanguage(selectedItem?.key || "uz");
     }, []);
 
+    // useEffect(() => {
+    //     const savedLang = localStorage.getItem("lang") || document.cookie.split('; ').find(row => row.startsWith('lang='))?.split('=')[1];
+        
+    //     const defaultLang = savedLang || items[0]?.key || "uz"; // items bo'sh bo'lsa
+    //     i18next.changeLanguage(defaultLang);
+    //     setSelectedLang(items.find(item => item.key === defaultLang)?.shortName || "O'z");
+    // }, [items]); 
+
     return (
         <div className="sticky top-0 z-50 container pt-5">
             {/* <div className="flex items-center justify-end m-auto mb-5 px-10">

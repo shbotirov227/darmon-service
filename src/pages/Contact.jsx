@@ -1,16 +1,25 @@
-import React from "react";
+"use client";
+
+import React, { Suspense } from "react";
 import Link from "next/link";
+import { useTranslation } from "react-i18next";
 import { LuPhoneCall, LuMail } from "react-icons/lu";
 import { SlLocationPin } from "react-icons/sl";
-import Layout from "@/components/Layout";
-import Title from "@/components/Title";
-import MiniCard from "@/components/MiniCard";
+
+const Layout = React.lazy(() => import("@/components/Layout"));
+const Loading = React.lazy(() => import("@/components/Loading"));
+const Title = React.lazy(() => import("@/components/Title"));
+const MiniCard = React.lazy(() => import("@/components/MiniCard"));
 
 const Contact = () => {
+
+    const { t } = useTranslation();
+
     return (
-        <Layout>
+        <Suspense fallback={<Loading />}>
+            <Layout>
             <div className="container">
-                <Title title="Bog'lanish" text="Biz bilan bog'laning" />
+                <Title title={t("header.contact")} text={t("titleComponent.text.8")} />
 
                 <div className="flex items-center justify-around mb-20">
 
@@ -69,6 +78,7 @@ const Contact = () => {
                 </div>
             </div>
         </Layout>
+        </Suspense>
     )
 }
 

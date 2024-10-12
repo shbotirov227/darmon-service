@@ -1,14 +1,21 @@
-import React from "react";
-import Layout from "@/components/Layout";
-import Title from "@/components/Title";
-import Img1 from "@/assets/services-img1.png"
-import Img2 from "@/assets/services-img2.png"
-import Img3 from "@/assets/services-img3.png"
-import Img4 from "@/assets/services-img4.png"
-import ServiceCard from "@/components/ServiceCard";
+"use client";
+
+import React, { Suspense } from "react";
+import { useTranslation } from "react-i18next";
 import { Icon } from "@iconify/react";
+import Img1 from "@/assets/services-img1.png";
+import Img2 from "@/assets/services-img2.png";
+import Img3 from "@/assets/services-img3.png";
+import Img4 from "@/assets/services-img4.png";
+
+const Layout = React.lazy(() => import("@/components/Layout"));
+const Loading = React.lazy(() => import("@/components/Loading"));
+const Title = React.lazy(() => import("@/components/Title"));
+const ServiceCard = React.lazy(() => import("@/components/ServiceCard"));
 
 const Services = () => {
+
+    const { t } = useTranslation();
 
     const cardStyle = `m-auto size-24 bg-bgBase text-[#5296C6] rounded-full p-6`
 
@@ -140,42 +147,16 @@ const Services = () => {
     ];
 
     return (
-        <Layout>
-            <Title title="Xizmatlar" text="Darmon Servis xizmatlari" />
-            <div className="container flex items-center justify-between flex-wrap">
-                {servicesData.map((el, i) => (
-                    <ServiceCard key={i} img={el.icon} title={el.title} />
-                ))}
-                {/* <ServiceCard img={<Icon className="m-auto size-24 bg-bgBase text-[#5296C6] rounded-full p-6" icon="streamline:ear-hearing-solid" />} title="LOR" />
-                <ServiceCard img={<Icon className="m-auto size-24 bg-bgBase text-[#5296C6] rounded-full p-6" icon="medical-icon:i-neurology" />} title="Nevrologiya" />
-                <ServiceCard img={<Icon className="m-auto size-24 bg-bgBase text-[#5296C6] rounded-full p-6" icon="healthicons:pediatric-surgery" />} title="Pediatr" />
-                <ServiceCard img={<Icon className="m-auto size-24 bg-bgBase text-[#5296C6] rounded-full p-6" icon="mingcute:female-line" />} title="Ginekologiya" />
-                <ServiceCard img={<Icon className="m-auto size-24 bg-bgBase text-[#5296C6] rounded-full p-6" icon="material-symbols:urology-sharp" />} title="Urologiya" /> */}
-                {/* <ServiceCard img={Img2} title="Terapevt" />
-                <ServiceCard img={Img3} title="Terapevt" />
-                <ServiceCard img={Img4} title="Terapevt" />
-
-                <ServiceCard img={Img1} title="Terapevt" />
-                <ServiceCard img={Img2} title="Terapevt" />
-                <ServiceCard img={Img3} title="Terapevt" />
-                <ServiceCard img={Img4} title="Terapevt" />
-
-                <ServiceCard img={Img1} title="Terapevt" />
-                <ServiceCard img={Img2} title="Terapevt" />
-                <ServiceCard img={Img3} title="Terapevt" />
-                <ServiceCard img={Img4} title="Terapevt" />
-
-                <ServiceCard img={Img1} title="Terapevt" />
-                <ServiceCard img={Img2} title="Terapevt" />
-                <ServiceCard img={Img3} title="Terapevt" />
-                <ServiceCard img={Img4} title="Terapevt" />
-
-                <ServiceCard img={Img1} title="Terapevt" />
-                <ServiceCard img={Img2} title="Terapevt" />
-                <ServiceCard img={Img3} title="Terapevt" />
-                <ServiceCard img={Img4} title="Terapevt" /> */}
-            </div>
-        </Layout>
+        <Suspense fallback={<Loading />}>
+            <Layout>
+                <Title title={t("titleComponent.title.2")} text={t("titleComponent.text.2")} />
+                <div className="container flex items-center justify-between flex-wrap">
+                    {servicesData.map((el, i) => (
+                        <ServiceCard key={i} img={el.icon} title={el.title} />
+                    ))}
+                </div>
+            </Layout>
+        </Suspense>
     )
 }
 

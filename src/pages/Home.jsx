@@ -1,3 +1,4 @@
+/* eslint-disable react/no-unescaped-entities */
 "use client";
 
 import React, { Suspense, useEffect, useState } from "react";
@@ -8,9 +9,11 @@ import { useTranslation } from "react-i18next";
 import { GoArrowRight } from "react-icons/go";
 import { Button } from "@nextui-org/react";
 import { Icon } from "@iconify/react";
+import i18n from "../../i18n";
 
 // Lazy-loaded components
 const Layout = React.lazy(() => import("@/components/Layout"));
+const Loading = React.lazy(() => import("@/components/Loading"));
 const Title = React.lazy(() => import("@/components/Title"));
 const HomeCard = React.lazy(() => import("@/components/HomeCard"));
 const MiniCard = React.lazy(() => import("@/components/MiniCard"));
@@ -50,7 +53,7 @@ import "slick-carousel/slick/slick-theme.css";
 
 const Home = () => {
 
-    const { t, i18n } = useTranslation();
+    const { t } = useTranslation();
     const [formState, setFormState] = useState({ name: "", phone: "", message: "" });
     const [currentSlide, setCurrentSlide] = useState(0);
     const [text, setText] = useState("");
@@ -320,7 +323,7 @@ const Home = () => {
     }, [i18n.language, t]);
 
     return (
-        <Suspense fallback={<div>Loading...</div>}>
+        <Suspense fallback={<Loading />}>
             <Layout>
                 <div className="overflow-hidden m-auto text-center">
                     <div className="inline-flex items-center text-sm bg-[white] rounded-3xl shadow-md py-2 px-4 my-10">
