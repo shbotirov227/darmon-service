@@ -59,9 +59,8 @@ const About = () => {
                 <div className="container mb-10">
                     {
                         data.map((el, index) => (
-                            <Suspense fallback={<div>Loading...</div>}>
+                            <Suspense key={index} fallback={<div>Loading...</div>}>
                                 <LazyAboutCard
-                                    key={index}
                                     img={el.img}
                                     personName={el.personName}
                                     job={el.job}
