@@ -17,7 +17,7 @@ export default function RootLayout({ children }) {
                 type="text/css"
                 href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick-theme.min.css"
             />
-			<body className="bg-[#F9F9F9]">
+			<body style={{ overflowX: "hidden" }} className="bg-[#F9F9F9]">
                 <NextUIProvider>
                     {children}
                 </NextUIProvider>

@@ -24,6 +24,7 @@ const ContactForm = ({ handleSubmit, formState, handleChange, NewsCardImg }) => 
                     value={formState.name}
                     onChange={handleChange}
                     className="border bg-white rounded-2xl p-2"
+                    classNames={{ "input-wrapper": "shadow-none" }}
                 />
 
                 <label htmlFor="phone" className="text-sm font-medium text-gray-700">Telefon raqam</label>
@@ -32,8 +33,9 @@ const ContactForm = ({ handleSubmit, formState, handleChange, NewsCardImg }) => 
                     placeholder="+998 (__) ___ __ __"
                     value={formState.phone}
                     onChange={handleChange}
+                    className="!bg-[white] ouline-none"
                 >
-                    {(inputProps) => <Input {...inputProps} id="phone" name="phone" className="border bg-white rounded-2xl p-2" />}
+                    {(inputProps) => <Input {...inputProps} id="phone" name="phone" className="border !bg-[white] rounded-2xl p-2" />}
                 </InputMask>
 
                 <label htmlFor="message" className="text-sm font-medium text-gray-700">Xabar</label>
@@ -44,10 +46,10 @@ const ContactForm = ({ handleSubmit, formState, handleChange, NewsCardImg }) => 
                     onChange={handleChange}
                     placeholder="Yozing..."
                     rows={5}
-                    className="border rounded-2xl py-3 px-4 h-[100px] bg-white"
+                    className="border rounded-2xl py-3 px-4 h-[100px] bg-[white]"
                 />
 
-                <Button className="bg-blue text-base font-semibold text-white rounded-2xl py-7 hover:bg-blue-900 transition duration-200" type="submit">
+                <Button className="bg-blue text-base font-semibold shadow-md text-white rounded-2xl py-7 hover:bg-blue-900 transition duration-200" type="submit">
                     Yuborish
                 </Button>
             </form>

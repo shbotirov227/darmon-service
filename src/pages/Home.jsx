@@ -8,6 +8,7 @@ import Slider from "react-slick";
 import { useTranslation } from "react-i18next";
 import { GoArrowRight } from "react-icons/go";
 import { Button } from "@nextui-org/react";
+import {Accordion, AccordionItem} from "@nextui-org/react";
 import { Icon } from "@iconify/react";
 import i18n from "../../i18n";
 
@@ -322,6 +323,19 @@ const Home = () => {
         }
     }, [i18n.language, t]);
 
+    const defaultContent =
+    "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled";
+
+    const [activeIndex, setActiveIndex] = useState(null);
+
+    const handleAccordionChange = (key) => {
+        if (activeIndex === key) {
+            setActiveIndex(null); // Agar ochilgan bo'lsa, yopadi
+        } else {
+            setActiveIndex(key);  // Aks holda, ochadi
+        }
+    };
+
     return (
         <Suspense fallback={<Loading />}>
             <Layout>
@@ -351,7 +365,7 @@ const Home = () => {
                 </div>
 
                 {/* About section */}
-                <div className="container flex items-center justify-center my-12">
+                <div data-aos="fade-left" className="container flex items-center justify-center my-12">
                     <Image className="w-[30%]" src={Img1} alt="about-img1" />
                     <div className="w-[45%] ml-20">
                         <h4 className="text-blue text-center text-[16px] mb-3">{t("header.about")}</h4>
@@ -385,26 +399,28 @@ const Home = () => {
                     </div>
                 </div>
 
-                <Title title={t("titleComponent.title.1")} text={t("titleComponent.text.1")} />
+                <Title data-aos="fade-up" title={t("titleComponent.title.1")} text={t("titleComponent.text.1")} />
 
-                <div className="w-full grid grid-cols-3 gap-5 my-auto container mb-14">
+                <div data-aos="fade-up" className="w-full grid grid-cols-3 gap-5 my-auto container mb-14">
                     {cardData.map((el, i) => <MiniCard key={i} cls="block m-auto" icon={el.icon} title={el.title} />)}
                 </div>
 
-                <div className="container grid grid-cols-3 m-auto border bg-bgBase p-12 rounded-[30px] mb-14">
+                <div data-aos="fade-left" className="container grid grid-cols-3 m-auto border bg-bgBase p-12 rounded-[30px] mb-14">
                     {homeCardData.map((el, i) => <HomeCard key={i} icon={el.icon} border={el.border} value={el.value} title={el.title} />)}
                 </div>
 
-                <Title title={t("titleComponent.title.2")} text={t("titleComponent.text.2")} />
+                <div className="container">
+                    <Title title={t("titleComponent.title.2")} text={t("titleComponent.text.2")} />
 
-                <div className="relative w-full mx-auto my-10">
-                    <Slider arrows={false} className="w-[100%]" {...serviceSettings}>
-                        {servicesData.map((el, i) => (
-                            <div key={i} className="items-center rounded-3xl p-4">
-                                <ServiceCard img={el.icon} title={el.title} />
-                            </div>
-                        ))}
-                    </Slider>
+                    <div className="relative w-full mx-auto my-10">
+                        <Slider arrows={false} className="w-[100%]" {...serviceSettings}>
+                            {servicesData.map((el, i) => (
+                                <div key={i} className="items-center rounded-3xl p-4">
+                                    <ServiceCard img={el.icon} title={el.title} />
+                                </div>
+                            ))}
+                        </Slider>
+                    </div>
                 </div>
 
 
@@ -459,7 +475,7 @@ const Home = () => {
 
                 <Title title={t("titleComponent.title.6")} text={t("titleComponent.text.6")} />
 
-                <div className="flex mb-52">
+                <div className="flex mb-8">
                     <Slider arrows={false} className="min-w-[100%]" {...feedbackSettings}>
                         {feedbackData.map((el, i) => (
                             <div key={i} className="items-center rounded-3xl p-4">
@@ -469,6 +485,29 @@ const Home = () => {
                     </Slider>
                 </div>
 
+                <div className="container mb-52">
+                    <Title text="Ko’p beriladigan savollar" />
+                    <Accordion variant="splitted" className="w-[70%] m-auto shadow-none border-none">
+                    {Array.from({ length: 5 }, (_, i) => (
+                        <AccordionItem
+                            className={`rounded-[30px] bg-white p-3 border-b px-8 mb-7`}
+                            key={i + 1}
+                            aria-label={i + 1}
+                            expand={activeIndex === i + 1}
+                            indicator={
+                                <Icon className={`${activeIndex === i + 1 ? 'rotate-90' : ''} bg-bgBase text-blue rounded-full p-2`} icon={activeIndex === i + 1 ? 'ic:round-minus' : 'ic:round-plus'} fontSize={45} />
+                            }
+                            title="What Medical Services Do You Provide?"
+                            onClick={() => handleAccordionChange(i + 1)}
+                        >
+                            <p className="text-txtColor py-5 border-t border-[#E3E3E3]">
+                                {defaultContent}
+                            </p>
+                        </AccordionItem>
+                        ))}
+                    </Accordion>
+                </div>
+
                 <div className="container relative rounded-full flex items-center justify-between bg-callBg py-16 px-20 mb-32 bg-cover bg-center" style={{ backgroundImage: `url(${CallBg})` }}>
                     <Image className="w-[98%] h-[110%] absolute rounded-full border-2 border-bgBase left-0 mx-auto right-0 size-" src={CallBg} alt="call-img" />
                     <div className="z-10 w-full flex items-center">
@@ -476,9 +515,9 @@ const Home = () => {
                             <Icon className="text-white size-20 rounded-full border border-white p-4 m-2 bg-blue" icon="line-md:phone-call-loop" />
                         </div>
 
-                        <div className="ml-7">
-                            <h4 className="text-blue pb-2 mb-5 border-b border-b-blue">Qo'ng'iroq vaqti: 24/7</h4>
-                            <Link className="text-blue font-semibold text-xl" href="tel:+99871-203-00-17">71-203-00-17</Link>
+                        <div className="ml-10">
+                            <h4 className="text-blue text-xl pb-2 mb-4 border-b border-b-blue">Qo'ng'iroq vaqti: 24/7</h4>
+                            <Link className="text-blue text-3xl font-semibold" href="tel:+99871-203-00-17">71-203-00-17</Link>
                         </div>
                     </div>
                     <Image className="absolute -bottom-3 right-[80px] w-[30%]" src={CallImg} alt="call-img" />
