@@ -152,7 +152,7 @@ const Services = () => {
                 <Title title={t("titleComponent.title.2")} text={t("titleComponent.text.2")} />
                 <div className="container flex items-center justify-between flex-wrap">
                     {servicesData.map((el, i) => (
-                        <ServiceCard key={i} img={el.icon} title={el.title} />
+                        <ServiceCard data-aos="fade-up" data-aos-anchor-placement="center-bottom" key={i} img={el.icon} title={el.title} />
                     ))}
                 </div>
             </Layout>

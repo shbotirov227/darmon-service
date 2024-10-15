@@ -63,20 +63,20 @@ const Home = () => {
     const homeCardData = [
         {
             icon: <HomeIcon1 size={55} />,
-            value: "250+",
+            value: "250456+",
             title: t("homeCardData.1")
         },
 
         {
             icon: <HomeIcon2 size={55} />,
-            value: "250+",
+            value: "150+",
             title: t("homeCardData.2"),
             border: true
         },
 
         {
             icon: <HomeIcon3 size={45} />,
-            value: "250+",
+            value: "2135+",
             title: t("homeCardData.3")
         }
     ];
@@ -339,7 +339,7 @@ const Home = () => {
     return (
         <Suspense fallback={<Loading />}>
             <Layout>
-                <div className="overflow-hidden m-auto text-center">
+                <div className="overflow-hidden m-auto text-center" data-aos="fade-up">
                     <div className="inline-flex items-center text-sm bg-[white] rounded-3xl shadow-md py-2 px-4 my-10">
                         <HomeHospitalIcon cls="mr-2 bg-blue p-[5px] rounded-full w-[30px] h-[30px]" />
                         <h4 className="text-blue">{t("button.welcome")}</h4>
@@ -354,7 +354,7 @@ const Home = () => {
                     </Button>
                 </div>
 
-                <div className="relative w-full max-w-4xl mx-auto my-10">
+                <div className="relative w-full max-w-4xl mx-auto my-10" data-aos="fade-up">
                     <Slider {...settings}>
                         {data.map((img, index) => (
                             <div key={index} className="items-center rounded-3xl bg-[white] p-4">
@@ -365,7 +365,7 @@ const Home = () => {
                 </div>
 
                 {/* About section */}
-                <div data-aos="fade-left" className="container flex items-center justify-center my-12">
+                <div data-aos="fade-left" data-aos-anchor-placement="center-left" className="container flex items-center justify-center my-12">
                     <Image className="w-[30%]" src={Img1} alt="about-img1" />
                     <div className="w-[45%] ml-20">
                         <h4 className="text-blue text-center text-[16px] mb-3">{t("header.about")}</h4>
@@ -399,18 +399,18 @@ const Home = () => {
                     </div>
                 </div>
 
-                <Title data-aos="fade-up" title={t("titleComponent.title.1")} text={t("titleComponent.text.1")} />
+                <Title data-aos="fade-up" data-aos-anchor-placement="center-bottom" title={t("titleComponent.title.1")} text={t("titleComponent.text.1")} />
 
                 <div data-aos="fade-up" className="w-full grid grid-cols-3 gap-5 my-auto container mb-14">
                     {cardData.map((el, i) => <MiniCard key={i} cls="block m-auto" icon={el.icon} title={el.title} />)}
                 </div>
 
-                <div data-aos="fade-left" className="container grid grid-cols-3 m-auto border bg-bgBase p-12 rounded-[30px] mb-14">
+                <div data-aos="fade-right" data-aos-anchor-placement="center-right" className="container grid grid-cols-3 m-auto border bg-bgBase p-12 rounded-[30px] mb-14">
                     {homeCardData.map((el, i) => <HomeCard key={i} icon={el.icon} border={el.border} value={el.value} title={el.title} />)}
                 </div>
 
-                <div className="container">
-                    <Title title={t("titleComponent.title.2")} text={t("titleComponent.text.2")} />
+                <div data-aos="fade-up" data-aos-anchor-placement="center-bottom" className="container">
+                    <Title data-aos="fade-up" title={t("titleComponent.title.2")} text={t("titleComponent.text.2")} />
 
                     <div className="relative w-full mx-auto my-10">
                         <Slider arrows={false} className="w-[100%]" {...serviceSettings}>
@@ -424,68 +424,71 @@ const Home = () => {
                 </div>
 
 
-                <Title title={t("titleComponent.title.3")} text={t("titleComponent.text.3")} />
-
-                <div className="container flex flex-wrap items-center justify-between mb-12">
-                    <DoctorCard img={DoctorImg} doctorName="Micheal Scofield" job="Nevrolog" experience={10} />
-                    <DoctorCard img={DoctorImg} doctorName="Micheal Scofield" job="Nevrolog" experience={10} />
-                    <DoctorCard img={DoctorImg} doctorName="Micheal Scofield" job="Nevrolog" experience={10} />
-                    <DoctorCard img={DoctorImg} doctorName="Micheal Scofield" job="Nevrolog" experience={10} />
+                <div data-aos="fade-up" data-aos-anchor-placement="center-bottom">
+                    <Title title={t("titleComponent.title.3")} text={t("titleComponent.text.3")} />
+                    <div className="container flex flex-wrap items-center justify-between mb-12">
+                        <DoctorCard img={DoctorImg} doctorName="Micheal Scofield" job="Nevrolog" experience={10} />
+                        <DoctorCard img={DoctorImg} doctorName="Micheal Scofield" job="Nevrolog" experience={10} />
+                        <DoctorCard img={DoctorImg} doctorName="Micheal Scofield" job="Nevrolog" experience={10} />
+                        <DoctorCard img={DoctorImg} doctorName="Micheal Scofield" job="Nevrolog" experience={10} />
+                    </div>
+                    <Button className="flex items-center mb-10 text-base text-center mx-auto text-blue bg-transparent font-semibold">
+                        <Link className="flex items-center" href="/doctors">
+                            Barchasini ko'rish
+                            <Icon className="text-sm text-blue ml-1" icon="formkit:arrowright" />
+                        </Link>
+                    </Button>
                 </div>
 
-                <Button className="flex items-center mb-10 text-base text-center mx-auto text-blue bg-transparent font-semibold">
-                    <Link className="flex items-center" href="/doctors">
-                        Barchasini ko'rish
-                        <Icon className="text-sm text-blue ml-1" icon="formkit:arrowright" />
-                    </Link>
-                </Button>
 
-                <Title title={t("titleComponent.title.4")} text={t("titleComponent.text.4")} />
-
-
-                <div className="container flex justify-between flex-wrap mb-14">
-                    {newsData.map((news, index) => (
-                        <NewsCard
-                            key={index}
-                            image={news.image}
-                            date={news.date}
-                            views={news.views}
-                            title={news.title}
-                        />
-                    ))}
-                </div>
-
-                <Button className="flex items-center mb-10 text-base text-center mx-auto text-blue bg-transparent font-semibold">
-                    <Link className="flex items-center" href="/news">
-                        Barchasini ko`rish
-                        <Icon className="text-sm text-blue ml-1" icon="formkit:arrowright" />
-                    </Link>
-                </Button>
-
-                <Title title={t("titleComponent.title.5")} text={t("titleComponent.text.5")} />
-
-                <div className="container overflow-hidden ">
-                    <ContactForm
-                        handleSubmit={handleSubmit}
-                        formState={formState}
-                        handleChange={handleChange}
-                        NewsCardImg={NewsCardImg}
-                    />
-                </div>
-
-                <Title title={t("titleComponent.title.6")} text={t("titleComponent.text.6")} />
-
-                <div className="flex mb-8">
-                    <Slider arrows={false} className="min-w-[100%]" {...feedbackSettings}>
-                        {feedbackData.map((el, i) => (
-                            <div key={i} className="items-center rounded-3xl p-4">
-                                <FeedbackCard img={el.img} name={el.name} role={el.role} text={el.text} />
-                            </div>
+                <div data-aos="fade-up" data-aos-anchor-placement="center-bottom">
+                    <Title data-aos="fade-up" title={t("titleComponent.title.4")} text={t("titleComponent.text.4")} />
+                    <div className="container flex justify-between flex-wrap mb-14">
+                        {newsData.map((news, index) => (
+                            <NewsCard
+                                key={index}
+                                image={news.image}
+                                date={news.date}
+                                views={news.views}
+                                title={news.title}
+                            />
                         ))}
-                    </Slider>
+                    </div>
+                    <Button className="flex items-center mb-10 text-base text-center mx-auto text-blue bg-transparent font-semibold">
+                        <Link className="flex items-center" href="/news">
+                            Barchasini ko`rish
+                            <Icon className="text-sm text-blue ml-1" icon="formkit:arrowright" />
+                        </Link>
+                    </Button>
                 </div>
 
-                <div className="container mb-52">
+
+                <div data-aos="fade-up" data-aos-anchor-placement="center-bottom">
+                    <Title title={t("titleComponent.title.5")} text={t("titleComponent.text.5")} />
+                    <div className="container overflow-hidden ">
+                        <ContactForm
+                            handleSubmit={handleSubmit}
+                            formState={formState}
+                            handleChange={handleChange}
+                            NewsCardImg={NewsCardImg}
+                        />
+                    </div>
+                </div>
+
+                <div data-aos="fade-up" data-aos-anchor-placement="center-bottom">
+                    <Title title={t("titleComponent.title.6")} text={t("titleComponent.text.6")} />
+                    <div className="flex mb-8">
+                        <Slider arrows={false} className="min-w-[100%]" {...feedbackSettings}>
+                            {feedbackData.map((el, i) => (
+                                <div key={i} className="items-center rounded-3xl p-4">
+                                    <FeedbackCard img={el.img} name={el.name} role={el.role} text={el.text} />
+                                </div>
+                            ))}
+                        </Slider>
+                    </div>
+                </div>
+
+                <div data-aos="fade-up" data-aos-anchor-placement="center-bottom" className="container mb-52">
                     <Title text="Ko’p beriladigan savollar" />
                     <Accordion variant="splitted" className="w-[70%] m-auto shadow-none border-none">
                     {Array.from({ length: 5 }, (_, i) => (
@@ -508,7 +511,7 @@ const Home = () => {
                     </Accordion>
                 </div>
 
-                <div className="container relative rounded-full flex items-center justify-between bg-callBg py-16 px-20 mb-32 bg-cover bg-center" style={{ backgroundImage: `url(${CallBg})` }}>
+                <div data-aos="fade-up" data-aos-anchor-placement="center-bottom" className="container relative rounded-full flex items-center justify-between bg-callBg py-16 px-20 mb-32 bg-cover bg-center" style={{ backgroundImage: `url(${CallBg})` }}>
                     <Image className="w-[98%] h-[110%] absolute rounded-full border-2 border-bgBase left-0 mx-auto right-0 size-" src={CallBg} alt="call-img" />
                     <div className="z-10 w-full flex items-center">
                         <div className="p-2 bg-blue rounded-full">

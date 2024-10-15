@@ -12,10 +12,14 @@
         "text": "TAKE CARE OF YOUR HEALTH WITH",
         "textBold": "DARMON SERVIS",
         "address": "Tashkent, Chilanzar district, Cho'ponota street, 18/19",
+        "since": "DARMONSERVIS since 2005",
 
         "link": {
             "1": "Useful link",
-            "2": ""
+            "2": "Telefon raqam",
+            "3": "Elektron pochta",
+            "4": "Manzil",
+            "address": "Tashkent, Chilonzor 18/19"
         }
     },
 
@@ -93,6 +97,10 @@
             "1": "Highly qualified doctor",
             "2": "Highly qualified doctor"
         }
-    }
+    },
 
+    "contactPage": {
+        "title": "Visit our hospital",
+        "text": "Lorem Ipsum is simply dummy text of the printing and typesetting industry."
+    }
 }

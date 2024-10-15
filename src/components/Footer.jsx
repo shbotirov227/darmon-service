@@ -22,7 +22,7 @@ const Footer = () => {
                 </div>
 
                 <div className="w-[20%] text-[white]">
-                    <h4 className="mb-4 font-semibold text-xl">Foydali havola</h4>
+                    <h4 className="mb-4 font-semibold text-xl">{t("footer.link.1")}</h4>
                     <ul>
                         <li className="mb-3"><Link href="/about" className="transition-all text-[base] pb-1 border-b border-b-transparent hover:border-b-[white] hover:border-b">{t("header.about")}</Link></li>
                         <li className="mb-3"><Link href="/services" className="transition-all text-[base] pb-1 border-b border-b-transparent hover:border-b-[white] hover:border-b">{t("header.services")}</Link></li>
@@ -33,9 +33,9 @@ const Footer = () => {
                 </div>
 
                 <div className="w-[30%] text-[white]">
-                    <h4 className="mb-4 font-semibold text-xl">Foydali havola</h4>
+                    <h4 className="mb-4 font-semibold text-xl">{t("footer.link.1")}</h4>
                     <ul>
-                        <li className="mb-3"><Link href="https://yandex.uz/maps/-/CDXazKyr" target="_blank">Toshkent, Chilonzor, Cho’pon ota ko’chasi 18/19 uy</Link></li>
+                        <li className="mb-3"><Link href="https://yandex.uz/maps/-/CDXazKyr" target="_blank">{t("footer.address")}</Link></li>
                         <li className="mb-3"><Link className="transition-all text-base pb-1 border-b border-b-transparent hover:border-b-[white] hover:border-b" href="tel:+99871-203-00-17">71-203-00-17</Link></li>
                         <li className="mb-3"><Link className="transition-all text-base pb-1 border-b border-b-transparent hover:border-b-[white] hover:border-b" href="tel:+99871-200-00-17">71-200-00-17</Link></li>
                         <li className="mb-3"><Link href="/doctors" className="transition-all text-base pb-1 border-b border-b-transparent hover:border-b-[white] hover:border-b">{t("header.doctors")}</Link></li>
@@ -51,7 +51,7 @@ const Footer = () => {
                     </div>
                 </div>
             </div>
-            <h4 className="container text-center text-[white] pt-10 border-t border-t-[white]">DARMONSERVIS since 2005</h4>
+            <h4 className="container text-center text-[white] pt-10 border-t border-t-[white]">{t("footer.since")}</h4>
         </div>
     )
 }

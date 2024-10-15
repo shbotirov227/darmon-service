@@ -18,29 +18,29 @@ const Contact = () => {
     return (
         <Suspense fallback={<Loading />}>
             <Layout>
-            <div className="container">
+            <div className="container" data-aos="fade-up" data-aos-anchor-placement="center-bottom">
                 <Title title={t("header.contact")} text={t("titleComponent.text.8")} />
 
                 <div className="flex items-center justify-around mb-20">
 
                     <MiniCard 
                         icon={<LuPhoneCall className="flex items-center justify-center m-auto text-blue bg-bgBase p-4 rounded-full mb-6" size={55} />}
-                        title="Telefon raqam"
+                        title={t("footer.link.2")}
                         link="71-200-00-17"
                         url="tel:+99871-200-00-17"
                     />
 
                     <MiniCard 
                         icon={<LuMail className="flex items-center justify-center m-auto text-blue bg-bgBase p-4 rounded-full mb-6" size={55} />}
-                        title="Elektron pochta"
+                        title={t("footer.link.3")}
                         link="Darmonservis1@gmail.com"
                         url="mailto:Darmonservis1@gmail.com"
                     />
 
                     <MiniCard 
                         icon={<SlLocationPin className="flex items-center justify-center m-auto text-blue bg-bgBase p-4 rounded-full mb-6" size={55} />}
-                        title="Manzil"
-                        link="Toshkent, Chilonzor 18/19 uy"
+                        title={t("footer.link.4")}
+                        link={t("footer.link.address")}
                         url="https://yandex.uz/maps/-/CDXazKyr"
                         target
                     />
@@ -64,8 +64,8 @@ const Contact = () => {
 
                 <div className="flex items-center justify-between mb-20">
                     <div>
-                        <h3 className="text-blue font-bold text-[30px] mb-4">Visit our hospital</h3>
-                        <p className="text-txtColor my-5 leading-7 text-[15px]">Lorem Ipsum is simply dummy text of the printing and typesetting industry.</p>
+                        <h3 className="text-blue font-bold text-[30px] mb-4">{t("contactPage.title")}</h3>
+                        <p className="text-txtColor my-5 leading-7 text-[15px]">{t("contactPage.text")}</p>
                     </div>
 
                     <iframe

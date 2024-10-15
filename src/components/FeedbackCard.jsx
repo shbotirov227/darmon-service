@@ -4,7 +4,7 @@ import Image from "next/image";
 
 const FeedbackCard = ({ img, name, role, text}) => {
     return (
-        <div className="w-full bg-white py-8 px-10 relative rounded-[30px]">
+        <div className="w-full bg-white py-8 px-10 shadow-md relative rounded-[30px]">
             <div className="flex">
                 <Image className="w-[20%] h-14 mr-5" src={img} alt="feedback-card-img" />
                 <div className="w-[80%] mb-6">

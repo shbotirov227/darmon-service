@@ -11,11 +11,15 @@
     "footer": {
         "text": "BILAN SOG'LIG'INGIZGA G'AMXO'RLIK QILING",
         "textBold": "DARMON SERVIS",
-        "address": "Toshkent, Chilonzor tumani, Cho'ponota ko'chasi, 18/19",
-        
+        "address": "Toshkent, Chilonzor tumani, Cho'ponota ko'chasi, 18/19 uy",
+        "since": "DARMONSERVIS 2005-yildan beri",
+
         "link": {
-            "1": "Useful link",
-            "2": ""
+            "1": "Foydali havola",
+            "2": "Telefon raqam",
+            "3": "Elektron pochta",
+            "4": "Manzil",
+            "address": "Toshkent, Chilonzor 18/19 uy"
         }
     },
 
@@ -30,7 +34,6 @@
         "1": "Lore Ipsum shunchaki matbaa va dizgi sanoati model matn. Lore Ipsum 1500-yillardan beri sanoatning standart qo'g'irchoq matni bo'lib kelgan, o'shanda noma'lum printer turdagi oshxonani olib, uni namunaviy kitob qilish uchun shifrlangan.",
         "2": "Lore Ipsum shunchaki matbaa va dizgi sanoati model matn. Lore Ipsum 1500-yillardan beri sanoatning standart qo'g'irchoq matni bo'lib kelgan, o'shanda noma'lum printer turdagi oshxonani olib, uni namunaviy kitob qilish uchun shifrlangan.",
         "3": "Lore Ipsum shunchaki matbaa va dizgi sanoati model matn. Lore Ipsum 1500-yillardan beri sanoatning standart qo'g'irchoq matni bo'lib kelgan, o'shanda noma'lum printer turdagi oshxonani olib, uni namunaviy kitob qilish uchun shifrlangan."
-
     },
 
     "button": {
@@ -94,5 +97,10 @@
             "1": "Yuqori malakali shifokor",
             "2": "Yuqori malakali shifokor"
         }
+    },
+
+    "contactPage": {
+        "title": "Shifoxonamizga tashrif buyuring",
+        "text": "Lorem Ipsum matbaa va matn terish sanoatining oddiygina soxta matnidir."
     }
 }
