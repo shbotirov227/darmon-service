@@ -1,6 +1,7 @@
 /* eslint-disable react/no-unescaped-entities */
 import React, { Suspense } from "react";
 import Image from "next/image";
+import { useTranslation } from "react-i18next";
 import Img1 from "@/assets/service-detail-img1.png";
 import DoctorImg from "@/assets/doctor-img.png";
 
@@ -11,6 +12,8 @@ const DoctorCard = React.lazy(() => import("@/components/DoctorCard"));
 
 
 const ServiceDetail = () => {
+
+    const { t } = useTranslation();
 
     const ulData1 = [
         "Dori-darmonlarni qabul qilgandan keyin ham o'tmaydigan tez-tez bosh og'rig'i;",
@@ -35,14 +38,12 @@ const ServiceDetail = () => {
         <Suspense fallback={<Loading />}>
             <Layout>
                 <div className="container">
-                    <Title title="Xizmatlar" text="Nevrologiya" />
+                    <Title title={t("titleComponent.title.8")} text={t("titleComponent.text.9")} />
                     <Image className="mb-7" src={Img1} alt="service-detail-img" />
 
                     <div className="mb-12">
-                        <h4 className="text-blue text-lg font-semibold mb-5">Nevrologiya bu nima?</h4>
-                        <p className="text-txtColor text-base">
-                            Nevrologiya - bu markaziy asab tizimi bilan shug'ullanadigan tibbiyot sohasi. “Darmon servis” tibbiyot markazi nevropatologlari miya kasalliklari, asab tizimi shikastlanishlari, nevrozlar, asab tizimi kasalliklarini davolaydi. Ko'pgina nevrologik kasalliklarning belgilari ichki organlar kasalliklarining klinik ko'rinishiga o'xshaydi, shuning uchun to'g'ri tashxis qo'yish uchun to'liq keng qamrovli tekshiruvdan o'tish juda muhimdir.Nevrologik kasalliklarning dastlabki belgilarida mutaxassis bilan bog'lanish sizni davolash samaradorligini ta'minlashga imkon beradi.
-                        </p>
+                        <h4 className="text-blue text-lg font-semibold mb-5">{t("serviceDetail.title.1")}</h4>
+                        <p className="text-txtColor text-base">{t("serviceDetail.text.1")}</p>
                     </div>
 
                     <div className="mb-12">

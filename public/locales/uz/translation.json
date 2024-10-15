@@ -27,7 +27,8 @@
     "titleMain": "Klinikasi Sizning Sog’ligigiz Haqida Qayg’uradi",
 
     "link": {
-        "1": "Ko’proq ma’lumot"
+        "1": "Ko’proq ma’lumot",
+        "2": "Batafsil"
     },
 
     "text": {
@@ -54,7 +55,8 @@
             "4": "Maqola",
             "5": "Konsultatsiya",
             "6": "Izohlar",
-            "7": "Darmon servis klinikasi"
+            "7": "Darmon servis klinikasi",
+            "8": "Xizmatlar"
         },
 
         "text": {
@@ -65,7 +67,8 @@
             "5": "Shifokor qabuliga yoziling",
             "6": "Bemorlar fikrlari",
             "7": "Fotolavhalar",
-            "8": "Biz bilan bog’laning"
+            "8": "Biz bilan bog’laning",
+            "9": "Nevrologiya"
         }
     },
 
@@ -102,5 +105,16 @@
     "contactPage": {
         "title": "Shifoxonamizga tashrif buyuring",
         "text": "Lorem Ipsum matbaa va matn terish sanoatining oddiygina soxta matnidir."
+    },
+
+    "serviceDetail": {
+        "title": {
+            "1": "Nevrologiya bu nima?"
+        },
+
+        "text": {
+            "1": "Nevrologiya - bu markaziy asab tizimi bilan shug'ullanadigan tibbiyot sohasi. “Darmon servis” tibbiyot markazi nevropatologlari miya kasalliklari, asab tizimi shikastlanishlari, nevrozlar, asab tizimi kasalliklarini davolaydi. Ko'pgina nevrologik kasalliklarning belgilari ichki organlar kasalliklarining klinik ko'rinishiga o'xshaydi, shuning uchun to'g'ri tashxis qo'yish uchun to'liq keng qamrovli tekshiruvdan o'tish juda muhimdir.Nevrologik kasalliklarning dastlabki belgilarida mutaxassis bilan bog'lanish sizni davolash samaradorligini ta'minlashga imkon beradi.",
+            "2": ""
+        }
     }
 }
